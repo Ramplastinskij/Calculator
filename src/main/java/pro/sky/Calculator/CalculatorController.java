@@ -17,25 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
         public String welcome() {
             return "Добро пожаловать в калькулятор";
         }
-
         @GetMapping("/plus")
         public String add(@RequestParam int num1, @RequestParam int num2) {
             int result = calculatorService.add(num1, num2);
             return String.format("%d + %d = %d", num1, num2, result);
         }
-
         @GetMapping("/minus")
         public String subtract(@RequestParam int num1, @RequestParam int num2) {
             int result = calculatorService.subtract(num1, num2);
             return String.format("%d - %d = %d", num1, num2, result);
         }
-
         @GetMapping("/multiply")
         public String multiply(@RequestParam int num1, @RequestParam int num2) {
             int result = calculatorService.multiply(num1, num2);
             return String.format("%d * %d = %d", num1, num2, result);
         }
-
         @GetMapping("/divide")
         public String divide(@RequestParam int num1, @RequestParam int num2) {
             if (num2 == 0) {
